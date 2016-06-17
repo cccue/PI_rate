@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>{{ title }}</title>
+
+    <!-- Bootstrap -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body class="full">
+
+   <nav class="navbar navbar-default">
+      <div class="container-fluid">
+         <!-- <div class="navbar-header"> -->
+         
+           <a href="./index"><img src="./static/images/pi-rate.jpg" title="Reads: pirate" href="./index"></img></a>
+
+           <div class="btn-group" role="group" aria-label="...">
+
+             <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Analytics
+                 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="./word_cloud">Word clouds</a></li>
+                    <li><a href="./rum_universe">Rum universe</a></li>
+                    <li><a href="./histograms">Histograms</a></li>
+                    <li><a href="./rum_similarity">Rum pair-similarity</a></li>
+                </ul>
+             </div>
+
+             <a class="btn btn-success" href="./about">About</a>
+             <a class="btn btn-default" href="/">MAISONlabs</a>
+             <!-- <a class="btn btn-danger" href="">On github</a> -->
+           </div>
+             <a href="./index"><img src="./static/images/pirate_inv_hat.jpg" align="right"></img></a>   
+         <!-- </div> --->
+
+      </div>
+
+    </nav>
+
+	{% block content %}{% endblock %}
+
+  <div id = "cop" class="container instructions"  align="center">
+  <div class="panel-body">
+    Copyright 2016 @MAISONlabs
+  </div></div>
+
+    <script src="./static/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script src="./static/js/jquery.min.js"></script>
+<link href="./static/css/custom.css" rel="stylesheet">
+
+<div class="container-fluid">
+<div class="panel panel-default panel-transparent">
+<div class="panel-body"><p class="lead text-justify panel-transparent-text">
+
+<strong> <font color="black"> Ahoy!:</font> </strong> Pi-rate is a little project conceived by 
+a mathematician (me) who got involved in collecting, analyzing and visualizing
+ rum review-data while having some fun learning (a bit of) web technologies. 
+The project involved web scraping of the 
+<a href="https://www.rumratings.com">RumRatings</a> site employing a combination of 
+<a href="https://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> and 
+<a href="http://dryscrape.readthedocs.io/en/latest/">Dryscrape</a>
+in order to collect the data. Processing, analysis and visualization
+were achieved via Python and Javascript integrated into 
+<a href="http://flask.pocoo.org/">Flask</a> 
+as the backend tool chosen to build this simple web app.
+</p>
+</div></div></div>
+
+
+  <div class="container instructions" align="center">
+  <p class="lead text-justify"> 
+   <font color="black"> Check the "Analytics" dropdown blue menu at the top
+   of the page for examples on analyzing and visualizing the rum data in
+   alternative ways to those found at 
+   <a href="https://www.rumratings.com">RumRatings</a>.  </font>
+  </p>
+
+  </div>
+
+
+{% endblock %}
+

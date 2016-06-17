@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+
+.bar rect {
+  fill: steelblue;
+  shape-rendering: crispEdges;
+}
+
+.bar text {
+  fill: #fff;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.legend rect {
+  fill:white;
+  opacity:0.8;
+}
+</style>
+ <script> function new_window_list() {
+           window.open("./rum_name_list");
+           }
+  </script>
+
+<script src="./static/js/jquery.min.js"></script>
+<link href="./static/css/custom.css" rel="stylesheet">
+<script src="./static/js/d3.v3.min.js"></script>
+<script src="./static/js/d3.legend.js"></script>
+
+<div class="container-fluid">
+<div class="panel panel-default panel-transparent">
+<div class="panel-body"><p class="lead text-justify panel-transparent-text">
+<strong><font color="black"> Insight 103; meaning behind bars: </font></strong>
+Probability distributions are the easiest way to understanding rum quality
+when analyzing review data, with individual brand rating distributions 
+already shipping within <a href="https://www.rumratings.com">RumRatings</a>.
+However, better understanding of quality can only be achieved when 
+individual distributions are compared to the overall rating distribution 
+of all types, as only the overall rating distribution can address the 
+question: <font color="black"> what does the average rum look like? </font>
+</p>
+</div>
+</div>
+</div>
+
+  <div class="container-fluid" align="center">
+  <p class="lead text-justify">
+   <strong> The tool introduced below allows the user to generate the 
+   rating and sentiment analysis distributions for any rum while
+   comparing them to the overall distros for the full site.
+   Sentiment analysis was done with the help of the 
+   <a href="https://indico.io">Indico</a> API. </strong>   
+  </p>
+  </div>
+
+
+  <div class="container-fluid" align="center">
+    Enter reference rum index below 
+    (<a onclick="new_window_list()">Click here for rum index list</a>)
+    to build the rating and sentiment 
+    distribution histograms. In both cases reference distributions are 
+    compared
+    to the overall site distributions.
+    <br><br>
+    <input type="text" id="rum_index" value="0">
+    <button type="button" class="hist-button btn-default btn-lg"> Make histograms!</button>
+  </div><br>
+
+
+  <div id="vis" class="container-fluid" style="text-align:center;"></div>
+
+<script src="./static/js/histograms.js"></script>
+{% endblock %}

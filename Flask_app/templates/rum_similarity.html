@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style type="text/css">
+  table{
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+  table th{
+    border: 1px solid black;
+  }
+  table td{
+    border: 1px solid black;
+  }
+  table tr{
+    border: 1px solid black;
+  }
+
+</style>
+ <script> function new_window_list() {
+           window.open("./rum_name_list");
+           }
+  </script>
+
+<script src="./static/js/jquery.min.js"></script>
+<link href="./static/css/custom.css" rel="stylesheet">
+
+<div class="container-fluid">
+<div class="panel panel-default panel-transparent">
+<div class="panel-body"><p class="lead text-justify panel-transparent-text">
+<strong><font color="black"> Insight 104; to sip or not to sip: </font></strong>
+This section is concerned with understanding the rum universe
+in terms of rum similarity. The most direct approach to judging similarity 
+among types is to compare their average ratings. This is the default 
+approach that <a href="https://www.rumratings.com"> RumRatings </a>
+employs when ranking these spirits. Yet, while intuitive, this information 
+can be complemented with a secondary descriptor (pair correlation) 
+to gain further insights into the data.  
+</p>
+</div>
+</div>
+</div>
+
+  <div class="container-fluid" align="center">
+   
+  <a href="#details" class="btn btn-default" data-toggle="collapse">Click for discussion on pair-correlation</a>
+  <br> <br>
+  <div id="details" class="collapse">
+  <p class="lead text-justify"><strong>
+  The image below portraits an example of a rum universe with three
+  users, three spirits and the ratings each user has assigned to each 
+  bottle. According to the average rating descriptor, 
+  all three rums would be equally ranked (6 ratings on average). However,
+  in many cases one is interested in knowing how similar is a given
+  rum to another one assuming the test subject sampled both rums.
+  By looking at the pic is clear that the 
+  average rating descriptor does not suffice for such purpose. 
+  For example, the top rum and middle one are quite different 
+  (top rum 3 ratings below middle rum) based on 
+  the user set that tested both (only one person in this case).
+  Similarly, the middle rum turns out to be ((5 - 9 + 4 - 3)/2 =  -1.5)
+  or 1.5 ratings below the bottom rum on average according to the user 
+  group that did try both brands (two users). This one-to-one conditional 
+  behaviour is known in mathematics
+  as pair correlations. </strong>
+  </p>
+   <div align="center">
+   <img src="./static/images/raiting_example1.jpg" align="center"></img>
+   </div>
+  </div>
+  </div>
+
+
+ <div class="container-fluid" align="center">
+
+  <div class="panel panel-default panel-transparent">
+  <div class="panel-body"> <p class="lead text-justify panel-transparent-text">
+  The tool introduced below allows the user to answer the rum 
+  brand pair-similarity question, i.e., the relative ranking between
+  rum pairs knowing in advance that the reviewer sampled both
+  rums. In addition to the average ratings 
+  descriptor it can be employed 
+  to get a more complete view on rum similarity
+  based on user tastes.
+  
+  </p>
+
+  </div></div></div>
+
+
+  <div class="container-fluid" align="center">
+    Enter reference rum index below to build the 
+    pair-similarity table 
+    (<a onclick="new_window_list()">Click here for rum index list</a>). 
+    This will create a rum list ranking bottles
+    starting by the most similar to the reference one. Positive 
+    values of the rating differences imply better quality of the
+    listed rum with respect to the reference one. Alternatively, 
+    negative numbers imply worst quality. Reviewer population
+    counts stating how many users tried both rums are also provided.
+    <br><br>
+    <input type="text" id="rum_index" value="0">
+    <button type="button" class="table-button btn-default btn-lg"> Tabulate pair-similarity ranks!</button>
+  </div><br>
+
+   <div id="vis" class="container-fluid" align="center"></div>
+   <script src="./static/js/table_sim.js"></script>
+
+{% endblock %}

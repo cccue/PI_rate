@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+{% block content %}
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+
+svg {
+    position:relative;
+
+}
+</style>
+<script src="./static/js/jquery.min.js"></script>
+<script src="./static/js/d3.v3.min.js"></script>
+
+<link href="./static/css/custom.css" rel="stylesheet">
+
+ <div id="details" class="collapse in">
+ 
+ <div class="container-fluid">
+ <div class="panel panel-default panel-transparent">
+ <div class="panel-body"><p class="lead text-justify panel-transparent-text">
+
+ <strong> <font color="black"> Insight 102; rum-urchin: </font> 
+ </strong> In this application I have chosen
+ to visualize the "rum universe" from the generic user perspective.
+ By rum universe I mean the distribution of all available bottles in the
+ rum space. 
+ This required the construction of a graph-like object where the root node 
+ (origin of the graph)
+ represents the generic user and all other nodes (children of the root one) 
+ are the rum types considered. 
+ </p> 
+ </div></div></div>
+
+ <div class="container-fluid" align="center">
+  <p class="lead text-justify">
+  <strong> 
+   The distance from a given rum node to the user is selected
+   such that the farther the node, the better the rum quality according
+   its average rating. Colors are employed to cluster 
+   brands with similar average rating. I like this type of display as 
+   opposed to lists because it gives the reader a quick view of what the
+   brands' space is like in terms of ratings.
+   After my science days coding and running
+   molecular dynamics (MD) simulations I had to invoque the MD lord for this 
+   one...
+
+  </strong><br>
+  </p>
+  </div>
+
+  </div>
+
+ <div class="container-fluid" align="center">
+    Click the button below to see a dynamic 
+    rum-universe graph representation.
+    Consecutive clicks regenerate the graph. This is the original data 
+    from 
+    <a href="https://www.rumratings.com">RumRatings</a> repackaged with 
+    the help of force-directed graphs using 
+    <a href="https://d3js.org/">D3</a>. Hovering over the nodes will display
+    the brand name, brand id, and brand average rating.
+<br><br>
+    <button href="#details" type="button" id="graphButton" class="graph-button btn-default btn-lg" data-toggle="collapse"> Make rum universe graph!</button>
+
+  <br><br>
+  </div>
+ 
+<div id="vis" class="container-fluid" style="text-align:center;">
+   <script src="./static/js/force_graph.js"></script>
+  </div> 
+{% endblock %}

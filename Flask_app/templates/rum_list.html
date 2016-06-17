@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+	  table{
+	    border-collapse: collapse;
+	    border: 1px solid black;
+	  }
+	  table th{
+	    border: 1px solid black;
+	  }
+	  table td{
+	    border: 1px solid black;
+	  }
+	  table tr{
+	    border: 1px solid black;
+	  }
+	</style>
+        <script src="./static/js/jquery.min.js"></script>
+        <script type="text/javascript">
+        var line="./make_rum_list"        
+        function get_rum_list(){
+             $.getJSON(line, function(data) {
+
+                //console.log(data);
+                $( ".list_div" ).remove();
+
+                var tag_html = "<table class=\"table\"> <tr> <th> Index </th> <th> Rum name </th></tr>";
+                tag_html += "<tr> <td>" + "-1" + "&nbsp &nbsp <img src=\"./static/images/ron_bottle_small.png\"> </img>" + "</td> <td> Full site reviews </td></tr>";
+                for (var index = 0; index < data.rum_names.length; index++) {
+                     tag_html += "<tr> <td>" + index + "&nbsp &nbsp <img src=\"./static/images/ron_bottle_small.png\"> </img>" + "</td> <td> " + data.rum_names[index] + "</td></tr>";
+
+                }
+
+                tag_html += " </table>";
+
+                var root = document.getElementById("vis");
+                var child = document.createElement("div");
+                child.className = "list_div container-fluid";
+                child.innerHTML = tag_html;
+                root.appendChild(child);
+             });
+        }
+        window.onload = get_rum_list;
+        </script>
+    </head>
+    <body>
+      <div id="vis" class="container-fluid" style="text-align:center;"></div>
+    </body>
+</html>

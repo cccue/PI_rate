@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <script> function new_window_list() {
+           window.open("./rum_name_list");
+           }
+  </script>
+  <link href="./static/css/custom.css" rel="stylesheet">
+
+  <div id="nodetails" class="collapse in">
+
+  <div class="container-fluid" align="center">
+  <p class="lead text-justify">
+  <strong> 
+   <font color="black"> Insight 101; an image is worth a thousand words: </font> 
+  As vision in humans constitutes the most important of all our senses (IMO), 
+  one quick and pictorial way to develop intuition about the nature 
+  of the reviews for a given rum is to generate what is known as a 
+  word-cloud representation. Such representation is an image that
+  displays the N-most common words in a body of text after removing those 
+  frequent terms that do not contribute any meaning to it (known as stop-words)
+  (examples are articles, pronouns, etc). In the cloud image, 
+  common words are displayed such that their 
+  font sizes are made proportional to the word frequency. 
+  This gives the reader an intuitive view of the significance of each 
+  term within the text.
+
+  </strong><br>
+  </p>
+
+  </div>
+
+
+  <div class="container-fluid" align="center">
+  
+  <div class="panel panel-default panel-transparent">
+  <div class="panel-body"> <p class="lead text-justify panel-transparent-text">
+  The tool introduced below allows the creation of a word cloud 
+  for the set of English reviews for each
+  spirit, as well as for the whole set of reviews composing all
+  English reviews within the site. 
+  Credit goes to <a href="https://www.jasondavies.com/wordcloud/">Jason Davies</a> for the original word cloud tool
+  which I have streamlined here for processing data output from my natural
+  language processing (NLP) routines. Language detection was achieved via
+  the <a href="https://indico.io">Indico</a> API.
+  </p>
+
+  </div></div></div>
+
+  </div>
+
+   <div class="container-fluid" align="center">
+    Enter rum index below to build word cloud 
+    (<a onclick="new_window_list()">Click here for rum index list</a>).
+    For a given index 
+    consecutive clicks rearrange the order of the words displayed. 
+    For some fun examples try index values: <strong> -1
+    </strong>
+    creates the cloud for all English reviews of all the brands considered;
+    <strong> 81 </strong> outputs content related to a rum 
+    considered as not very good; <strong> 62 </strong> 
+    characterizes a good mixer.<br><br>
+    <input type="text" id="rum_index" value="0"> 
+    <button href="#details" type="button" id="myButton" class="cloud-button btn-default btn-lg" data-toggle="collapse">Make cloud!</button>
+   </div><br>
+
+   <div id="vis" class="container-fluid" style="text-align:center;"></div>
+<script src="./static/js/jquery.min.js"></script>
+<script src="./static/js/d3.min.js"></script>
+<script src="./static/js/cloud.min.js"></script>
+{% endblock %}
+
